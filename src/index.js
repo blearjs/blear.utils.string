@@ -2,7 +2,7 @@
 
 require('blear.polyfills.string');
 
-var array = require('.blear.utils.array');
+var array = require('blear.utils.array');
 var object = require('blear.utils.object');
 var typeis = require('blear.utils.typeis');
 var access = require('blear.utils.access');
