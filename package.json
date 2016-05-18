@@ -14,6 +14,9 @@
   },
   "main": "src/index.js",
   "keywords": [
+    "blear",
+    "utils",
+    "string",
     "cloudcome",
     "ydr.me"
   ],
