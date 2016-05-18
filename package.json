@@ -1,7 +1,7 @@
 {
   "name": "blear.utils.string",
-  "version": "1.0.0",
-  "description": "blear.utils.string description",
+  "version": "1.0.1",
+  "description": "string utils",
   "scripts": {
     "live": "browser-sync start --config bs-config.js",
     "test": "node ./node_modules/.bin/karma start --single-run --browsers PhantomJS --reporters progress"
