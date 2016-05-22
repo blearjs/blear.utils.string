@@ -11,9 +11,28 @@ var access = require('blear.utils.access');
 var reHump = /[A-Z]/g;
 var reSep = /[-_ ]([a-z])/g;
 var reRegExp = /[.*+?^=!:${}()|[\]\/\\-]/g;
-var reLessThan = /</g;
+var escapeHTMLMap = {
+    '&amp;': /&/g,
+    '&lt;': /</g,
+    '&gt;': />/g,
+    '&quot;': /"/g,
+    '&apos;': /'/g,
+    '&#x2f;': /\//g
+};
+/**
+ * 解码 html 实体符 map
+ * @type {Object}
+ */
+var unescapeHTMLMap = {
+    '&': /&amp;/g,
+    '<': /&lt;/g,
+    '>': /&gt;/g,
+    '"': /&quot;/g,
+    '\'': /&apos;/g,
+    '/': /&#x2f;/g
+};
+var reEscape = /&#(x)?([\w\d]{0,5});/ig;
 var reAssignVarible = /\$\{([^{}]*?)}/g;
-var pEl = document.createElement('p');
 
 
 /**
@@ -137,14 +156,7 @@ exports.padEnd = function (str, maxLength, char) {
 };
 
 
-var escapeHTMLMap = {
-    '&amp;': /&/g,
-    '&lt;': /</g,
-    '&gt;': />/g,
-    '&quot;': /"/g,
-    '&apos;': /'/g,
-    '&#x2f;': /\//g
-};
+
 
 /**
  * 编码字符串为 html 实体符
@@ -167,9 +179,15 @@ exports.escapeHTML = function (str) {
  * @returns {string|string}
  */
 exports.unescapeHTML = function (str) {
-    pEl.innerHTML = (str + '').replace(reLessThan, '&lt;');
+    str = str.replace(reEscape, function (full, hex, code) {
+        return String.fromCharCode(parseInt(code, hex ? 16 : 10));
+    });
 
-    return pEl.innerText || pEl.textContent || '';
+    object.each(unescapeHTMLMap, function (to, reg) {
+        str = str.replace(reg, to);
+    });
+    
+    return str;
 };
 
 
