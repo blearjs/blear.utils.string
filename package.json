@@ -1,6 +1,6 @@
 {
   "name": "blear.utils.string",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "string utils",
   "scripts": {
     "live": "browser-sync start --config bs-config.js",
@@ -41,6 +41,7 @@
     "blear.utils.array": "1.x",
     "blear.utils.object": "1.x",
     "blear.utils.typeis": "1.x",
+    "blear.utils.json": "1.x",
     "blear.utils.access": "1.x"
   },
   "devDependencies": {

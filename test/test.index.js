@@ -112,4 +112,11 @@ describe('测试文件', function () {
             return '[' + val + ']';
         })).toEqual('[A][B][C]');
     });
+    
+    it('.textify', function () {
+        var original = '\n';
+        var ret = string.textify(original);
+        
+        expect(ret).toEqual('\\n');
+    });
 });

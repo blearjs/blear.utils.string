@@ -6,6 +6,7 @@ var array = require('blear.utils.array');
 var object = require('blear.utils.object');
 var typeis = require('blear.utils.typeis');
 var access = require('blear.utils.access');
+var json = require('blear.utils.json');
 
 
 var reHump = /[A-Z]/g;
@@ -295,4 +296,14 @@ exports.assign = function (str/*arguments*/, filter) {
     return str.replace(reAssignVarible, function ($0, $1) {
         return filter(String(data[$1]));
     });
+};
+
+
+/**
+ * 文本化
+ * @param str
+ * @returns {string}
+ */
+exports.textify = function (str) {
+    return json.stringify({o: str}).replace(/^.*?:"/, '').replace(/".*?$/, '');
 };
