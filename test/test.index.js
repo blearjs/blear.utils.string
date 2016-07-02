@@ -115,8 +115,11 @@ describe('测试文件', function () {
     
     it('.textify', function () {
         var original = '\n';
+        var original2 = '"';
         var ret = string.textify(original);
-        
+        var ret2 = string.textify(original2);
+
         expect(ret).toEqual('\\n');
+        expect(ret2).toEqual('\\"');
     });
 });

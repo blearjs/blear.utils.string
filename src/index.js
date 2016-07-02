@@ -305,5 +305,5 @@ exports.assign = function (str/*arguments*/, filter) {
  * @returns {string}
  */
 exports.textify = function (str) {
-    return json.stringify({o: str}).replace(/^.*?:"/, '').replace(/".*?$/, '');
+    return json.stringify({o: str}).replace(/^.*?:"/, '').replace(/"}$/, '');
 };
