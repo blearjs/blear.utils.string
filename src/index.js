@@ -1,6 +1,5 @@
 'use strict';
 
-require('blear.polyfills.string');
 
 var array = require('blear.utils.array');
 var object = require('blear.utils.object');

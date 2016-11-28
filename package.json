@@ -1,6 +1,6 @@
 {
   "name": "blear.utils.string",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "string utils",
   "scripts": {
     "live": "browser-sync start --config bs-config.js",
@@ -37,7 +37,6 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "blear.polyfills.string": "1.x",
     "blear.utils.array": "1.x",
     "blear.utils.object": "1.x",
     "blear.utils.typeis": "1.x",
