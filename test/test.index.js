@@ -59,8 +59,14 @@ describe('测试文件', function () {
     it('.escapeHTML/.unescapeHTML', function () {
         var str1 = '<&>"\'/';
         var str2 = '&lt;&amp;&gt;&quot;&apos;&#x2f;';
+        var str3 = '123';
+
         expect(string.escapeHTML(str1)).toEqual(str2);
         expect(string.unescapeHTML(str2)).toEqual(str1);
+        var ret = string.escapeHTML(str3, true);
+        var divEl = document.createElement('div');
+        divEl.innerHTML = ret;
+        expect(divEl.innerHTML).toBe(str3);
     });
 
     it('.escapeRegExp', function () {

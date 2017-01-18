@@ -156,20 +156,33 @@ exports.padEnd = function (str, maxLength, char) {
 };
 
 
-
-
 /**
  * 编码字符串为 html 实体符
  * @param str
+ * @param [all] {boolean} 是否编码所有字符
  * @returns {string|string}
  */
-exports.escapeHTML = function (str) {
+exports.escapeHTML = function (str, all) {
     str = str + '';
-    object.each(escapeHTMLMap, function (src, reg) {
-        str = str.replace(reg, src);
-    });
 
-    return str;
+    if (!all) {
+        object.each(escapeHTMLMap, function (src, reg) {
+            str = str.replace(reg, src);
+        });
+
+        return str;
+    }
+
+    var ret = '';
+    var start = 0;
+    var length = str.length;
+
+    for (; start < length; start++) {
+        var chr = str.charCodeAt(start);
+        ret += '&#' + chr + ';'
+    }
+
+    return ret;
 };
 
 
@@ -186,7 +199,7 @@ exports.unescapeHTML = function (str) {
     object.each(unescapeHTMLMap, function (to, reg) {
         str = str.replace(reg, to);
     });
-    
+
     return str;
 };
 
