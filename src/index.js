@@ -306,7 +306,9 @@ exports.assign = function (str/*arguments*/, filter) {
     }
 
     return str.replace(reAssignVarible, function ($0, $1) {
-        return filter(String(data[$1]));
+        return filter(
+            object.get(data, $1)
+        );
     });
 };
 
