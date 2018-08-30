@@ -269,13 +269,13 @@ exports.versionThan = function versionThan(v1, v2, flag) {
 /**
  * 分配字符串，参考 es6
  * @param str {String} 字符串模板
- * @param filter {Function} 过滤函数
+ * @param filter {function | object} 过滤函数
  * @returns {String}
  * @example
  * string.assign('Hello ${name}, how are you ${time}?', {
-     *     name: 'Bob',
-     *     time: 'today'
-     * });
+ *     name: 'Bob',
+ *     time: 'today'
+ * });
  * // => "Hello Bob, how are you today?"
  *
  * string.assign('Hello ${1}, how are you ${2}?', 'Bob', 'today');

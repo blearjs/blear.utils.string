@@ -107,6 +107,17 @@ describe('测试文件', function () {
         expect(string.assign(str, data)).toEqual('ABC');
     });
 
+    it('.assign:more', function () {
+        var data = {
+            a: 'A',
+            b: {
+                c: 'C'
+            }
+        };
+        var str = '${a}${b.c}';
+        expect(string.assign(str, data)).toEqual('AC');
+    });
+
     it('.assign:one:filter', function () {
         var data = {
             a: 'A',
