@@ -127,7 +127,7 @@ var padStart = exports.padStart = function (str, maxLength, char) {
 
     var times = maxLength - str.length;
 
-    if (!times) {
+    if (times <= 0) {
         return str;
     }
 
@@ -148,7 +148,7 @@ exports.padEnd = function (str, maxLength, char) {
 
     var times = maxLength - str.length;
 
-    if (!times) {
+    if (times <= 0) {
         return str;
     }
 

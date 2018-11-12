@@ -46,6 +46,7 @@ describe('测试文件', function () {
         expect(string.padStart('a', 3, '0')).toBe('00a');
         expect(string.padStart('a', 3)).toBe('  a');
         expect(string.padStart('aaa', 3)).toBe('aaa');
+        expect(string.padStart('aaaa', 3)).toBe('aaaa');
         done();
     });
 
@@ -53,6 +54,7 @@ describe('测试文件', function () {
         expect(string.padEnd('a', 3, '0')).toBe('a00');
         expect(string.padEnd('a', 3)).toBe('a  ');
         expect(string.padEnd('aaa', 3)).toBe('aaa');
+        expect(string.padEnd('aaaa', 3)).toBe('aaaa');
         done();
     });
 
